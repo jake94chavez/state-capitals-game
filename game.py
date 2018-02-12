@@ -1,4 +1,4 @@
-# from shuffle import random
+import random
 states = {'Washington':'Olympia','Oregon':'Salem',\
                     'California':'Sacramento','Ohio':'Columbus',\
                     'Nebraska':'Lincoln','Colorado':'Denver',\
@@ -29,17 +29,18 @@ states_test = {'Texas':'Austin', 'North Carolina':'Raleigh', 'Idaho':'Boise'}
 
 print('Welcome to the State Capitals game! To play you will be prompted with a state and you must guess the capital! \n'
 	'Make sure your capitals are spelled correctly and begin with a CAPITAL letter or you will not get a point.')
-
 def initiate_game():
 	correct = 0
 	wrong = 0
-	for key in states_test:
+	keys=list(states.keys())
+	random.shuffle(keys)
+	for key in keys:
 		print(key)
 		answer = input('What is the capital? ')
-		if answer == states_test[key]:
+		if answer == states[key]:
 			print('Great job!');
 			correct += 1;
-		elif answer != states_test[key]:
+		elif answer != states[key]:
 			print('Oops! You missed it. That\'s ok! Keep practicing!');
 			wrong += 1;
 		print('Current score:', correct)
@@ -50,7 +51,8 @@ def initiate_game():
 	if play_again == 'Y':
 		initiate_game();
 	elif play_again == 'study':
-		print(states);
+		for key in states:
+			print(key, ':', states[key]);
 	else:
 		print('Thanks for playing! Goodbye!')
 
