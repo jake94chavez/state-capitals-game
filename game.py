@@ -27,16 +27,31 @@ states = {'Washington':'Olympia','Oregon':'Salem',\
 
 states_test = {'Texas':'Austin', 'North Carolina':'Raleigh', 'Idaho':'Boise'}
 
-correct = 0
-wrong = 0
-for key in states_test:
-	print(key)
-	answer = input('What is the capital? ')
-	if answer == states_test[key]:
-		print('Great job!');
-		correct += 1;
-	elif answer != states_test[key]:
-		print('Oops! You missed it. That\'s ok! Keep practicing!');
-		wrong += 1;
-	
-print('You scored:', correct, 'points and missed:', wrong, 'questions.')
+print('Welcome to the State Capitals game! To play you will be prompted with a state and you must guess the capital! \n'
+	'Make sure your capitals are spelled correctly and begin with a CAPITAL letter or you will not get a point.')
+
+def initiate_game():
+	correct = 0
+	wrong = 0
+	for key in states_test:
+		print(key)
+		answer = input('What is the capital? ')
+		if answer == states_test[key]:
+			print('Great job!');
+			correct += 1;
+		elif answer != states_test[key]:
+			print('Oops! You missed it. That\'s ok! Keep practicing!');
+			wrong += 1;
+		print('Current score:', correct)
+	print('You scored:', correct, 'points and missed:', wrong, 'questions.')
+	play_again = input('Would you like to play again? Type \'Y\' if you would! ')
+	if play_again == 'Y':
+		initiate_game();
+	else:
+		print('Thanks for playing! Goodbye!')
+
+start_message = input('Type \'Y\' to start the game! ')
+if start_message == 'Y':
+	initiate_game();
+else:
+	print('Maybe next time!')
