@@ -44,13 +44,17 @@ def initiate_game():
 			wrong += 1;
 		print('Current score:', correct)
 	print('You scored:', correct, 'points and missed:', wrong, 'questions.')
-	play_again = input('Would you like to play again? Type \'Y\' if you would! ')
+	play_again = input('Would you like to play again? Type \'Y\' if you would! \n'
+		'If you want to study, type \'study\' \n'
+		'')
 	if play_again == 'Y':
 		initiate_game();
+	elif play_again == 'study':
+		print(states);
 	else:
 		print('Thanks for playing! Goodbye!')
 
-start_message = input('Type \'Y\' to start the game! ')
+start_message = input('Type \'Y\' to start the game ')
 if start_message == 'Y':
 	initiate_game();
 else:
